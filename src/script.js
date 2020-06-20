@@ -1,17 +1,15 @@
-var a = document.querySelector('a')
+var box1 = document.querySelector('#box1')
+var box2 = document.querySelector('#box2')
 
-// получаем атрибут сылки href через команду гет Атрибут
-console.log(a.getAttribute('href'));
+// добавление класса
+box1.classList.add('red')
 
-var oldHref = a.getAttribute('href')
+//удаление класса
+box2.classList.remove('blue')
 
-console.log(a.getAttribute('title'));
 
-// также мы можем обратиться к объекту у Ноды - атрибьютс
-console.log(a.attributes);
+// есть ли определенный клас у элемента?
+var hasclass = box2.classList.contains('blue')
+console.log(hasclass);
 
-// меняем ссылку
 
-a.setAttribute('href', 'https://ya.ru')
-
-a.textContent = "yandex"
