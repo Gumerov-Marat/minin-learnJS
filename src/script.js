@@ -1,32 +1,17 @@
-// //задание 1 Доступ к элементам
-// var div = document.getElementById('playground');
+var a = document.querySelector('a')
 
-// var p = document.getElementsByClassName('text');
+// получаем атрибут сылки href через команду гет Атрибут
+console.log(a.getAttribute('href'));
 
-// var h1 = document.getElementsByTagName('h1');
+var oldHref = a.getAttribute('href')
 
+console.log(a.getAttribute('title'));
 
-// console.log(h1);
-// console.log(div);
-// console.log(p);
+// также мы можем обратиться к объекту у Ноды - атрибьютс
+console.log(a.attributes);
 
-//более новые методы
+// меняем ссылку
 
-// id из css = #id
-var div = document.querySelector('#playground');
-var p = document.querySelectorAll('.text')
-var h1 = document.querySelectorAll('h1')
+a.setAttribute('href', 'https://ya.ru')
 
-
-var input = document.querySelector('input')
-//console.log(h1);
-console.log(div.innerHTML);
-//console.log(p);
-
-div.innerHTML = '<h2 style="color:red;">javascript</h2>'
-console.log(div.innerHTML);
-console.log(div.textContent);
-console.log(input.value);
-
-
-
+a.textContent = "yandex"
