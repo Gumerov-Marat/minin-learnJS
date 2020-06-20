@@ -20,3 +20,4 @@ var h1 = document.querySelectorAll('h1')
 console.log(h1);
 console.log(div);
 console.log(p);
+
