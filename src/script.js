@@ -1,25 +1,29 @@
-var divs = document.querySelectorAll('div')
+//делигирование
 
-var link = document.querySelector('a')
+/*
+  мы можем ставить прослушку события на каждый элемент,но можем...
+*/
 
-for (var i = 0; i < divs.length; i++){
-  divs[i].addEventListener('click', function(){
-    event.stopPropagation();
-    
-    console.log(this.getAttribute('id'));
+var p = document.querySelectorAll('p')
+
+for (var i = 0; i < p.length; i++){
+  p[i].addEventListener('click', function(event){
+    event.target.style.color = 'blue'
   })
-}
+};
 
-link.addEventListener('click', handleLinkClick)
+/*
+  ищем внутри wrapper  по тегу p
+*/
 
-function handleLinkClick(event) {
-  event.preventDefault()
-  var div = divs[0]
+document.getElementById('wrapper').addEventListener('click', function(event){
+  var tagname = event.target.tagName.toLowerCase();
 
-  div.style.display = div.style.display === 'none'
-    ? 'flex'
-    : 'none'
-
-  console.log(div.style.display);
-  
-}
+  if (tagname === 'p') {
+    event.target.style.color = 'blue'
+  }
+  // те у кого класс колор
+  if (event.target.classList.contains('color')){
+    event.target.style.color = 'red'
+  }
+})
