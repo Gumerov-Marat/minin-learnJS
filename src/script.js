@@ -1,4 +1,4 @@
-// LocalStorage
+
 
 
 document.querySelector('button').addEventListener('click', function(event){
@@ -31,3 +31,4 @@ document.querySelector('button').addEventListener('click', function(event){
   document.querySelector('h1').textContent = obj.text
   }
 })
+
