@@ -1,2 +1,1 @@
-# minin-learnJS
-Курс - Полное руководство для современной разработки. Упражнения. примеры.
+https://gumerov-marat.github.io/minin-learnJS/.
