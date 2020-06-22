@@ -1,20 +1,29 @@
-var str = '1,2,3,4,5,6,7,8'
+document.querySelector('button').addEventListener('click', function (event) {
+  var value = document.querySelector('input').value
 
-// сплит с сепаратором ,
-var array = str.split(',')
-console.log(array);
+  var obj = {
+    text: value
+  }
 
-// обратное действие
-//array.join(';');
-
-var objArr = [
-  {name:'Max', age: 27},
-  {name: 'Elena', age: 18},
-  {name: 'Victor', age: 20}
-]
-
-var foundPerson = objArr.find(function(person){
-  return person.age ===20
+  localStorage.setItem('headerText', JSON.stringify(obj))
 })
 
-console.log(foundPerson);
+// document.addEventListener('DOMContentLoaded', function(){
+
+//   var text = localStorage.getItem('headerText')
+//   if (text && text.trim()){
+//   document.querySelector('h1').textContent = text
+//   }
+// })
+
+document.addEventListener('DOMContentLoaded', function () {
+  var obg = {}
+  try {
+    var obj = JSON.parse(localStorage.getItem('headerText'))
+  } catch (e) {}
+
+
+  if (obj && obj.text && obj.text.trim()) {
+    document.querySelector('h1').textContent = obj.text
+  }
+})
