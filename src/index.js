@@ -6,6 +6,8 @@ var $timeHeader = document.querySelector('#time-header')
 var $resultHeader = document.querySelector('#result-header')
 var $gameTime = document.querySelector('#game-time')
 
+var colors = ['red', 'blue', 'green', 'yellow', 'pink']
+
 var score = 0
 var isGameStarted = false
 
@@ -25,7 +27,7 @@ function hide($el) {
 function startGame() {
   score = 0
   setGameTime()
-  $gameTime.setAttribute('disabled', 'true')
+  $gameTime.setAttribute('disabled', 'true')// блокировка врмени игры
   isGameStarted = true
   $game.style.backgroundColor = '#fff'
   hide($start)
@@ -58,7 +60,7 @@ function setGameTime() {
 function endGame() {
   isGameStarted = false
   setGameScore()
-  $gameTime.removeAttribute('disabled')
+  $gameTime.removeAttribute('disabled')// отключение блокировки игры
   show($start)
   $game.innerHTML = ''
   $game.style.backgroundColor = '#ccc'
@@ -84,10 +86,11 @@ function renderBox() {
   var gameSize = $game.getBoundingClientRect()
   var maxTop = gameSize.height - boxSize
   var maxLeft = gameSize.width - boxSize
+  var randomColorIndex = getRandom(0, colors.length)
 
   box.style.height = box.style.width = boxSize + 'px'
   box.style.position = 'absolute'
-  box.style.backgroundColor = '#000'
+  box.style.backgroundColor = colors[randomColorIndex]
   box.style.top = getRandom(0, maxTop) + 'px'
   box.style.left = getRandom(0, maxLeft) + 'px'
   box.style.cursor = 'pointer'
