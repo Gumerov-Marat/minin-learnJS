@@ -1,24 +1,44 @@
 var $start = document.querySelector('#start')
 var $game = document.querySelector('#game')
+var $time = document.querySelector('#time')
 
 var score = 0
+var isGameStarted = false
 
 $start.addEventListener('click', startGame)
 $game.addEventListener('click', handleBoxClick)
 
 // функция старта игры
 function startGame() {
+  isGameStarted = true
   $game.style.backgroundColor = '#fff'
   $start.classList.add('hide')
-  score++
+
+  var interval = setInterval(function(){
+    var time = parseFloat ($time.textContent)
+
+    if (time <=0){
+      clearInterval(interval)
+      endGame()
+    } else {
+      $time.textContent = (time - 0.1).toFixed(1);
+    }
+  }, 100);
+
   renderBox()
 }
 
 function handleBoxClick(event){
+  if (!isGameStarted) {
+    return
+  }
   if(event.target.dataset){
     renderBox()
   }
-  
+}
+
+function endGame() {
+  isGameStarted = false
 }
 
 // Создание квадрата
